@@ -1,0 +1,15 @@
+/* font aweosme */
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .select-category {
+        @apply w-full px-4 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 ring-blue-500
+    }
+}
