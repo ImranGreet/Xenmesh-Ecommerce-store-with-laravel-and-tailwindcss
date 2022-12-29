@@ -1,3 +1,4 @@
+@props(['unAuthor'])
 
  <section class="my-5">
     <div class="text-center my-3">
@@ -18,7 +19,7 @@
                         Email
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Role
+                        Status
                     </th>
                     <th scope="col" class="py-3 px-6 text-center">
                         Action
@@ -26,18 +27,25 @@
                 </tr>
             </thead>
             <tbody>
+
+
+                @foreach ($unAuthor as $un_auth)
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Imran Hossain
+                        {{$un_auth->name}}
                     </th>
                     <td class="py-4 px-6">
-                        Sliver
+                        {{$un_auth->username}}
                     </td>
                     <td class="py-4 px-6">
-                        Laptop
+                        {{$un_auth->email}}
                     </td>
                     <td class="py-4 px-6">
-                        $2999
+                        @php
+                            if($un_auth->approved===0){
+                                echo 'pending';
+                            }
+                        @endphp
                     </td>
                     <td class="py-4 px-6 flex gap-x-2 justify-center">
                         <form action="#" method="post">
@@ -50,7 +58,11 @@
                         </form>
                     </td>
                 </tr>
-                <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+                @endforeach
+
+
+
+                {{-- <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         Microsoft Surface Pro
                     </th>
@@ -145,7 +157,7 @@
                             <button class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                         </form>
                     </td>
-                </tr>
+                </tr> --}}
             </tbody>
         </table>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminApprovalController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;

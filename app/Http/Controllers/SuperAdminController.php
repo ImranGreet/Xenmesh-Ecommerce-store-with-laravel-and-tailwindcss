@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SuperAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
@@ -18,7 +19,8 @@ class SuperAdminController extends Controller
     }
     public function authoraization()
     {
-        return view('superAdminPages.action');
+        $unAuthorisedAdmins = DB::table('admins')->where('approved', 0)->get();
+        return view('superAdminPages.action',['unAuthorised'=>$unAuthorisedAdmins]);
     }
     public function AuthorRegistration(Request $request){
         $affirmData = $request->validate([
